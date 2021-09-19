@@ -7,12 +7,9 @@
 </head>
 <body>
     <header>
-        <div class = "highScores">
-            <a href=""> High Scores</a>
-            <div class = "timer">
-                <h4>seconds left</h4>
-            </div>
-        </div>
+        <a href=""> High Scores</a>
+        <h4 class = "timer" style ="text-align:right;"></h4>
+        
 
     </header>
 
@@ -22,18 +19,26 @@
         <div id="landing">
             <h2>Code Quiz</h2>
             <p>Answer the questions correctly to achieve a high score! Every incorrect answer subtracts 10 seconds from the clock!</p>
-            <button type="button">Start!</button>
+            <button id = "startButton" type="button">Start!</button>
+            
         </div>
     </section>
 
     <section class= "container">
-        <div class = "quiz">
-            <div class ="questions"></div>
-            <div class ="choice1"></div>
-            <div class ="choice2"></div>
-            <div class= "choice3"></div>
-        </div> 
+        <div id = "quiz">
+            <form>
+                <p id = "question">What is HTML known as when comparing it to the human body?</P>
+                <input type ="radio" id="skin" name= "htmlque" value="skin">
+                <label id ="skin1" for = "skin">Skin</label>
+                <input type ="radio" id="muscle" name= "htmlque" value="muscle">
+                <label id ="muscle1" for = "skin">Muscle</label>
+                <input type ="radio" id="skeleton" name= "htmlque" value="skeleton">
+                <label id ="skeleton1" for = "skin">Skeleton</label>
+                <input type= "submit" id=submitanswer>
+            </form>
+        
     </section>
+            
 
     <section class ="container">
         <form>
@@ -49,6 +54,6 @@
     
 </main>
 
-
+<script src="./script.js"></script>
 </body>    
 </html>

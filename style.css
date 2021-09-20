@@ -1,10 +1,7 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+
     width: 500px;
-    height: 500px;
+    height: auto;
     margin: auto;
     border-radius: 25px;
 
@@ -12,14 +9,45 @@
 
 h2{
     font-size: 50px;
+    text-align: center;
 
 }
 
 p{
     font-size: 25px;
     padding: 25px;
+    text-align: center;
 }
 
-button{
-    background-color: purple;
+.timer
+
+
+#startButton, .a, .b, .c{
+    background-color: rgb(66, 3, 66);
+    color:white;
+    height: 30px;
+    width:100px;
+    margin: 10px;
+    border-style: solid;
+    border-color: rgb(12, 3, 12);
+    border-width: 3px;
+}
+
+#startButton:hover,.a:hover, .b:hover, .c:hover{
+    transform: translateY(-5px);
+    border-color: rgb(218, 149, 218);
+    color:violet;
+}
+
+#landing{
+    align-items: center;
+}
+#landing, #question1, #question2, #question3, #question4, #question5, #question6{
+    display:flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: rgb(66, 3, 66);
+    border-width: 5px;
+    margin: 10px;
+
 }

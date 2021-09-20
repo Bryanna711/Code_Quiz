@@ -24,26 +24,27 @@
         </div>
     </section>
 
-    <section class= "container">
+    <section class ="container">
         <div id = "question1">
-            <p class="que">What does HTML Function as, in terms of the body of a website?
-            </p>
-            <button class ="a" type="button">Skeleton
-            </button>
+            <p class="que">What does HTML Function as, in terms of the body of a website?</p>
+            <button class ="a" type="button">Skeleton</button>
+            <br>
             <button class ="b" type="button">Skin</button>
+            <br>
             <button class ="c" type="button">Muscle</button>
             
         </div>
 
         <div id = "question2">
-            <p class="que">What does CSS Function as, in terms of the body of a website?
-            </p>
+            <p class="que">What does CSS Function as, in terms of the body of a website?</p>
             <button class ="b" type="button">Skeleton</button>
-            <button class ="a" type="button">Skin
-            </button>
+            <br>
+            <button class ="a" type="button">Skin</button>
+            <br>
             <button class ="c" type="button">Muscle</button>
             
         </div>
+
 
         <div id = "question3">
             <p class="que">The special character denoting an "id" in CSS is:</p>       
@@ -89,21 +90,28 @@
     
         </div>
 
-        </section>
+    </section>
 
         <br>
             
 
     <section class ="container">
-        <form>
-            <input type="text" id ="userName" name="userName" value="name">
-            <label for ="name">Name:</label>
-            <button type="submit">Submit</button>
-        </form>
+        <div id =submit>
+            <h2>Enter your name to record your score!</h2>
+            <form>
+                <label for ="name">Name:</label>
+                <input type="text" id ="userName" name="userName" value="John Doe">
+                <br>
+                <button id=submitBtn type="button">Submit</button>
+            </form>
+        </div>  
     </section>
 
     <section class="container">
-        <p>High Scores</p>
+        <div id = "highScore">
+            <p>High Scores</p>
+            <ul id= "scores"></ul>
+        </div>
     </section>
     
 </main>

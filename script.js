@@ -52,26 +52,23 @@ startButton.addEventListener("click",function() {
      }
      startQuiz();
      countDown();
-     });
+});
+    
 
+    var secondsLeft = 60;
+    var timeInterval = -1;
+    function countDown() {
+            timeInterval = setInterval(function(){
+            secondsLeft--;
+            timeElement.textContent = secondsLeft + " seconds left!";
 
-    var secondsLeft = 61;
+            if(secondsLeft === 0) {
+                clearInterval(timeInterval);
+                //you lose msg?
+            }
+        }, 1000);
+    }
 
-function countDown() {
-    var timeInterval = setInterval(function(){
-        secondsLeft--;
-        timeElement.textContent = secondsLeft + " seconds left!";
-
-        if(secondsLeft === 0) {
-            clearInterval(timeInterval);
-            //you lose msg?
-        }
-        function stopTimer(){
-            clearInterval(timeInterval)
-        }
-    }, 1000);
-
-} 
 
 
 answerA1.addEventListener("click", function(){
@@ -253,6 +250,7 @@ answerC5.addEventListener("click", function(){
         secondsLeft = secondsLeft - 10;
     }
     wrongAnswer();
+
     });
 
 answerA6.addEventListener("click", function(){
@@ -262,6 +260,12 @@ answerA6.addEventListener("click", function(){
         document.getElementById("submit").style.display ="block";
         }
         endQuiz();
+
+        function stopTimer(){
+            clearInterval(timeInterval);
+            timeInterval = -1;
+        }
+        stopTimer();
     });             
     
 answerB6.addEventListener("click", function(){
@@ -271,10 +275,17 @@ answerB6.addEventListener("click", function(){
         document.getElementById("submit").style.display ="block";
         }
         endQuiz();
+
     function wrongAnswer(){
         secondsLeft = secondsLeft - 10;
     }
     wrongAnswer(); 
+
+    function stopTimer(){
+        clearInterval(timeInterval);
+        timeInterval = -1;
+    }
+    stopTimer();
 
     });
             
@@ -289,6 +300,12 @@ answerC6.addEventListener("click", function(){
         secondsLeft = secondsLeft - 10;
     }
     wrongAnswer();
+
+    function stopTimer(){
+        clearInterval(timeInterval);
+        timeInterval = -1;
+    }
+    stopTimer();
         });
 
 submitBtn.addEventListener("click", function(){

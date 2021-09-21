@@ -7,7 +7,7 @@
 </head>
 <body>
     <header>
-        <a href=""> High Scores</a>
+        <button id ="highScoreBtn"> High Scores! </button>
         <h4 class = "timer" style ="text-align:right;"></h4>
         
 
@@ -98,9 +98,9 @@
     <section class ="container">
         <div id =submit>
             <h2>Enter your name to record your score!</h2>
-            <form>
+            <form id="userNameForm">
                 <label for ="name">Name:</label>
-                <input type="text" id ="userName" name="userName" value="John Doe">
+                <input type="text" id ="userName" name="userName" value="userName">
                 <br>
                 <button id=submitBtn type="button">Submit</button>
             </form>
@@ -110,7 +110,8 @@
     <section class="container">
         <div id = "highScore">
             <p>High Scores</p>
-            <ul id= "scores"></ul>
+            <ul id= "scoresList"></ul>
+            <button id="returnBtn">Return to Start</button>
         </div>
     </section>
     

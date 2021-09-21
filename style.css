@@ -19,10 +19,8 @@ p{
     text-align: center;
 }
 
-.timer
 
-
-#startButton, .a, .b, .c, #submitBtn{
+ .a, .b, .c, #submitBtn, #returnBtn, #startButton,#highScoreBtn{
     background-color: rgb(66, 3, 66);
     color:white;
     height: 35px;
@@ -33,17 +31,13 @@ p{
     border-width: 3px;
 }
 
-#startButton:hover,.a:hover, .b:hover, .c:hover, #submitBtn:hover{
+.a:hover, .b:hover, .c:hover, #submitBtn:hover,#startButton:hover, #returnBtn:hover, #highScoreBtn:hover{
     transform: translateY(-5px);
     border-color: rgb(218, 149, 218);
     color:violet;
 }
-
-#landing{
-    align-items: center;
-
+  
    
-}
 #landing, #question1, #question2, #question3, #question4, #question5, #question6, #submit, #highScore{
     display:flex;
     flex-direction: column;
@@ -52,6 +46,7 @@ p{
     border-color: rgb(66, 3, 66);
     border-width: 5px;
     margin: 10px;
+    position: relative;
 }
 
 #submit form{

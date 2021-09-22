@@ -67,8 +67,10 @@ startButton.addEventListener("click",function() {
     }
 
 resetBtn.addEventListener("click", function(){
+    if(secondsLeft< 60){
     secondsLeft = secondsLeft+(60-secondsLeft);
-    countDown();
+    countDown();}
+  
 })
     
 
@@ -89,7 +91,7 @@ highScoreBtn.addEventListener("click", function(){
 returnBtn.addEventListener("click", function(){
     document.getElementById("landing").style.display = "block";
     document.getElementById("highScore").style.display = "none";
-    
+   
 })
 
 answerA1.addEventListener("click", function(){
@@ -321,6 +323,48 @@ submitBtn.addEventListener("click", function(){
     }
 
     submitScore();
+
+    var hScoreText = userNameInput.value + " - " + secondsLeft;
+    if (hScoreText === "") {
+        return;
+    }
+    hScores.push(hScoreText);
+    userNameInput.value ="";
+    
+    storeScores();
+    renderScores();
+});
+
+function renderScores(){
+    scoresList.innerHTML= "";
+    for(var i=0; i<hScores.length; i++){
+    var hScore = hScores[i];
+    var li = document.createElement("li");
+    li.textContent = hScore;
+    li.setAttribute("data-index", i);
+    scoresList.appendChild(li);
+    }
+
+    var storedScores = JSON.parse(localStorage.getItem("hScores"));
+    var storedScores = (localStorage.getItem("hScores"));
+
+    if(storedScores !== null){
+        hScores = storedScores;
+    }
+    renderScores();
+}
+
+function storeScores(){
+    localStorage.setItem("hScores", JSON.stringify(hScores));
+    localStorage.setItem("hScores",(hScores));
+};
+
+/*var scoresList= document.querySelector("#scoresList");
+var scoreForm = document.querySelector("#userNameForm");
+var userNameInput = document.querySelector("#userName");
+
+var hScores= [];
+var userName= [];
         
     var hScoreText ="";
 
@@ -364,4 +408,4 @@ function renderScores(){
 
 function storeScores(){
     localStorage.setItem("hScoresList",JSON.stringify(scoresList));
-};
+};*/

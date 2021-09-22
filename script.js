@@ -30,6 +30,7 @@ var scoreForm = document.querySelector("#userNameForm");
 var userNameInput = document.querySelector("#userName");
 
 var hScores= [];
+var userName= [];
 
 
 console.log(timeElement)
@@ -46,7 +47,7 @@ startButton.addEventListener("click",function() {
 });
     
 
-    var secondsLeft = 60;
+    var secondsLeft = 59;
     var timeInterval = -1;
     function countDown() {
             timeInterval = setInterval(function(){
@@ -56,6 +57,7 @@ startButton.addEventListener("click",function() {
             if(secondsLeft === 0) {
                 clearInterval(timeInterval);
             }
+            
         }, 1000);
     }
 
@@ -320,14 +322,16 @@ submitBtn.addEventListener("click", function(){
 
     submitScore();
         
-    var hScoreText = userNameInput.value + " - " + secondsLeft;
+    var hScoreText ="";
 
     if (hScoreText === "") {
         return;
     }
 
+    hScoreText = secondsLeft;
     hScores.push(hScoreText);
-    userNameInput.value ="";
+    
+    userName.push(userNameInput)
 
     storeScores();
     renderScores();
@@ -338,23 +342,26 @@ function renderScores(){
     scoresList.innerHTML= "";
 
     for(var i=0; i<hScores.length; i++){
-    var hScore = hScores[i];
+    var hScores = hScores[i];
+    var userNameInput = userNameInput[i]; {
+        scoresListText += userNameInput[i] + "," + hScores[i] + "\n";
+    }
 
     var li = document.createElement("li");
-    li.textContent = hScore;
+    li.textContent = scoresListText;
     li.setAttribute("data-index", i);
 
     scoresList.appendChild(li);
     }
 
-    var storedScores = (localStorage.getItem("hScores"));
+    var storedScores = JSON.parse(localStorage.getItem("hScoresList"));
 
     if(storedScores !== null){
-        jScores = storedScores;
+        scoresList = storedScores;
     }
     renderScores();
 }
 
 function storeScores(){
-    localStorage.setItem("hScores",(hScores));
+    localStorage.setItem("hScoresList",JSON.stringify(scoresList));
 };

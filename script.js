@@ -84,7 +84,7 @@ highScoreBtn.addEventListener("click", function () {
     document.getElementById("question6").style.display = "none";
     document.getElementById("submit").style.display = "none";
     document.getElementById("highScore").style.display = "block";
-    stopTimer();
+    // stopTimer();
 
 })
 

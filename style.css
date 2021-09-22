@@ -20,7 +20,7 @@ p{
 }
 
 
- .a, .b, .c, #submitBtn, #returnBtn, #startButton,#highScoreBtn{
+ .a, .b, .c, #resetTimer, #submitBtn, #returnBtn, #startButton,#highScoreBtn{
     background-color: rgb(66, 3, 66);
     color:white;
     height: 35px;
@@ -31,7 +31,7 @@ p{
     border-width: 3px;
 }
 
-.a:hover, .b:hover, .c:hover, #submitBtn:hover,#startButton:hover, #returnBtn:hover, #highScoreBtn:hover{
+.a:hover, .b:hover, .c:hover, #resetTimer:hover, #submitBtn:hover,#startButton:hover, #returnBtn:hover, #highScoreBtn:hover{
     transform: translateY(-5px);
     border-color: rgb(218, 149, 218);
     color:violet;

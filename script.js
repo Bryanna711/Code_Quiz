@@ -2,13 +2,14 @@ var timeElement = document.querySelector(".timer");
 var startButton = document.querySelector("#startButton");
 var highScoreBtn = document.querySelector("#highScoreBtn");
 var returnBtn = document.querySelector("#returnBtn")
+var resetBtn = document.querySelector("#resetTimer");
 
 var answerA1 =document.querySelector ("#question1 .a");
 var answerB1 =document.querySelector ("#question1 .b");
 var answerC1 = document.querySelector ("#question1 .c");
 var answerA2 =document.querySelector ("#question2 .a");
 var answerB2 =document.querySelector ("#question2 .b");
-var answerC2 = document.querySelector ("#question2 .c");
+var answerC2 =document.querySelector ("#question2 .c");
 var answerA3 =document.querySelector ("#question3 .a");
 var answerB3 =document.querySelector ("#question3 .b");
 var answerC3 = document.querySelector ("#question3 .c");
@@ -52,11 +53,22 @@ startButton.addEventListener("click",function() {
             secondsLeft--;
             timeElement.textContent = secondsLeft + " seconds left!";
 
-            if(secondsLeft <= 0) {
+            if(secondsLeft === 0) {
                 clearInterval(timeInterval);
             }
         }, 1000);
     }
+
+    function stopTimer(){
+        clearInterval(timeInterval);
+        timeInterval = -1;
+    }
+
+resetBtn.addEventListener("click", function(){
+    secondsLeft = secondsLeft+(60-secondsLeft);
+    countDown();
+})
+    
 
 highScoreBtn.addEventListener("click", function(){
     document.getElementById("landing").style.display = "none";
@@ -68,11 +80,7 @@ highScoreBtn.addEventListener("click", function(){
     document.getElementById("question6").style.display = "none";
     document.getElementById("submit").style.display = "none";
     document.getElementById("highScore").style.display = "block";
-
-    /*function disableTimer(){
-        secondsLeft=0;
-    }
-    disableTimer();*/
+    stopTimer();
    
 })
 
@@ -271,11 +279,6 @@ answerA6.addEventListener("click", function(){
         document.getElementById("submit").style.display ="block";
         }
         endQuiz();
-
-        function stopTimer(){
-            clearInterval(timeInterval);
-            timeInterval = -1;
-        }
         stopTimer();
     });             
     
@@ -291,11 +294,6 @@ answerB6.addEventListener("click", function(){
         secondsLeft = secondsLeft - 10;
     }
     wrongAnswer(); 
-
-    function stopTimer(){
-        clearInterval(timeInterval);
-        timeInterval = -1;
-    }
     stopTimer();
 
     });
@@ -311,11 +309,6 @@ answerC6.addEventListener("click", function(){
         secondsLeft = secondsLeft - 10;
     }
     wrongAnswer();
-
-    function stopTimer(){
-        clearInterval(timeInterval);
-        timeInterval = -1;
-    }
     stopTimer();
         });
 
@@ -354,7 +347,7 @@ function renderScores(){
     scoresList.appendChild(li);
     }
 
-    var storedScores = JSON.parse(localStorage.getItem("hScores"));
+    var storedScores = (localStorage.getItem("hScores"));
 
     if(storedScores !== null){
         jScores = storedScores;
@@ -363,17 +356,5 @@ function renderScores(){
 }
 
 function storeScores(){
-    localStorage.setItem("hScores", JSON.stringify(hScores));
+    localStorage.setItem("hScores",(hScores));
 };
-
-
-
-
-
-
-//I need to store the content of the "name" page along with the timer
-//a,b,c buttons on question 6 also need to stop the timer. These may all need to coded differently.
-       // First either deduct time or not, then stop timer, then hide content/show content
-
-       //Show/Hide Fuction will be conditional if question1 is visible, then question 1 becomes hidden and question 2 beccomes visible, etc....
-        //do I need data-tags for this?
